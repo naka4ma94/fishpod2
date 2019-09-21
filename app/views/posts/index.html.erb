@@ -1,0 +1,6 @@
+<h1>post index</h1>
+<p><%= link_to "new post", new_post_path %></p>
+
+<% @posts.each do |post| %>
+  <p><%= image_tag post.image.to_s %></p>
+<% end %>
