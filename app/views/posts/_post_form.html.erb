@@ -1,0 +1,22 @@
+<%= form_with(model: post, locale: true) do |f| %>
+  <% if controller.action_name == "new" %>
+    <%= f.label :photo %>
+    <%= f.file_field :image %>
+  <% else %>
+    <%= f.hidden_field :image_cache %>
+  <% end %>
+
+  <%= f.label :area %>
+  <%= f.select :area_id, [["竹山ダム", 1], ["薩摩湖", 2], ["鰻池", 3]], class:"form-control" %>
+
+  <%= f.label :size %>
+  <%= f.text_field :size %>
+
+  <%= f.label :lure %>
+  <%= f.text_field :lure %>
+
+  <%= f.label :commet %>
+  <%= f.text_area :comment %>
+
+  <%= f.submit %>
+<% end %>

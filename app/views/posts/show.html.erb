@@ -1,2 +1,10 @@
 <h1>Posts#show</h1>
-<p>Find me in app/views/posts/show.html.erb</p>
+<p><%= image_tag(@post.image.to_s) %></p>
+<p><%= @post.user.name %></p>
+<p><%= @post.size %></p>
+<p><%= @post.lure %></p>
+<p><%= @post.comment %></p>
+<p>post_date：<%= @post.created_at %></p>
+
+<p><%= link_to "edit", edit_post_path(@post) %></p>
+
