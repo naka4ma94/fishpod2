@@ -7,4 +7,5 @@
 <p>post_date：<%= @post.created_at %></p>
 
 <p><%= link_to "edit", edit_post_path(@post) %></p>
+<p><%= link_to "destyroy", @post, method: :delete, data: { confirm: "削除してもよろしいですか?" } %></p>
 
