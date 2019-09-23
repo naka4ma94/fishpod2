@@ -11,4 +11,8 @@
   <p><%= link_to "destyroy", @post, method: :delete, data: { confirm: "削除してもよろしいですか?" } %></p>
 <% end %>
 
+<p><%= link_to "コメントする", new_post_comment_path(@post) %></p>
 
+<% @comments.each do |comment| %>
+  <p><%= comment.user.name %> : <%= comment.content %></p>
+<% end %>

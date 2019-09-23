@@ -1,5 +1,6 @@
 class PostsController < ApplicationController
   before_action :correct_user, only: [:edit, :update, :destroy]
+  before_action :logged_user, only: [:new, :create, :edit, :update, :destroy]
 
   def index
     @posts = Post.all
@@ -7,6 +8,7 @@ class PostsController < ApplicationController
 
   def show
     @post = Post.find(params[:id])
+    @comments = @post.comments
   end
 
   def new
@@ -52,5 +54,9 @@ class PostsController < ApplicationController
       unless current_user == post.user
         redirect_to posts_path
       end
+    end
+
+    def logged_user
+      redirect_to posts_path if current_user == nil
     end
 end
