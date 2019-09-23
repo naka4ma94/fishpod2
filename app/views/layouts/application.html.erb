@@ -11,12 +11,23 @@
   </head>
 
   <body>
-    <% if user_signed_in? %>
-      <p><%= link_to "logout", destroy_user_session_path, method: :delete %></p>
-    <% else %>
-      <p><%= link_to "login", new_user_session_path %></p>
-    <% end %>
-    <p><%= link_to "index", posts_path %></p>
+    <header>
+      <div id="nav-drawer">
+        <input id="nav-input" type="checkbox" class="nav-unshown">
+        <label id="nav-open" for="nav-input"><span></span></label>
+        <label class="nav-unshown" id="nav-close" for="nav-input"></label>
+        <div id="nav-content">
+          <ul>
+            <% if user_signed_in? %>
+            <li><%= link_to "logout", destroy_user_session_path, method: :delete %></li>
+            <% else %>
+            <li><%= link_to "login", new_user_session_path %></li>
+            <% end %>
+            <li><%= link_to "index", posts_path %></li>
+          </ul>
+        </div>
+      </div>
+    </header>
     <%= yield %>
   </body>
 </html>
