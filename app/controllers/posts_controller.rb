@@ -1,4 +1,6 @@
 class PostsController < ApplicationController
+  before_action :correct_user, only: [:edit, :update, :destroy]
+
   def index
     @posts = Post.all
   end
@@ -43,5 +45,12 @@ class PostsController < ApplicationController
   private
     def post_params
       params.require(:post).permit(:image, :size, :lure, :comment, :area_id, :user_id, :image_cache)
+    end
+
+    def correct_user
+      post = Post.find(params[:id])
+      unless current_user == post.user
+        redirect_to posts_path
+      end
     end
 end
