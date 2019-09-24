@@ -2,10 +2,16 @@
 @import 'font-awesome-sprockets';
 @import 'font-awesome';
 
+body {
+  font-family: 'Georgia';
+}
+
 /*ヘッダーまわりはサイトに合わせて調整してください*/
 header {
   padding: 10px;
-  
+  background-image: url('IMG_1258.JPG');
+  height: 300px;
+  background-size: cover;
 }
 
 ul {
@@ -96,7 +102,7 @@ ul {
 #nav-input:checked~#nav-close {
   display: block;
   /*カバーを表示*/
-  opacity: .5;
+  opacity: 0.5;
 }
 
 #nav-input:checked~#nav-content {
@@ -104,4 +110,16 @@ ul {
   transform: translateX(0%);
   /*中身を表示（右へスライド）*/
   box-shadow: 6px 0 25px rgba(0, 0, 0, .15);
+}
+
+.photo {
+  img{
+    width: 100%;
+  }
+}
+
+.photos {
+  .col-4 {
+    padding: 5px 5px;
+  }
 }
