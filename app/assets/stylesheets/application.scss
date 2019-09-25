@@ -19,7 +19,9 @@ ul {
 }
 
 #nav-drawer {
-  position: relative;
+  position: fixed;
+  top: 30px;
+  left: 20px;
 }
 
 /*チェックボックス等は非表示に*/
@@ -79,6 +81,7 @@ ul {
 #nav-content {
   overflow: auto;
   position: fixed;
+  
   top: 0;
   left: 0;
   z-index: 9999;
@@ -112,14 +115,32 @@ ul {
   box-shadow: 6px 0 25px rgba(0, 0, 0, .15);
 }
 
-.photo {
-  img{
+
+.box {
+  display: inline-block;
+  width: 32%;
+  height: 150px;
+  padding: 5px 2px;
+
+  img {
     width: 100%;
+    height: 100%;
   }
 }
 
-.photos {
-  .col-4 {
-    padding: 5px 5px;
-  }
+footer {
+  
+}
+
+.foot-img {
+  padding: 10px;
+  background-image: url('IMG_0590.jpg');
+  height: 300px;
+  background-size: cover;
+}
+
+.foot-text {
+  text-align: center;
+  color: white;
+  margin: 50px 0px;
 }
