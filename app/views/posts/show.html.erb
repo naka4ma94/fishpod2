@@ -1,18 +1,26 @@
-<h1>Posts#show</h1>
-<p><%= image_tag(@post.image.to_s) %></p>
-<p><%= @post.user.name %></p>
-<p><%= @post.size %></p>
-<p><%= @post.lure %></p>
-<p><%= @post.comment %></p>
-<p>post_date：<%= @post.created_at %></p>
+<div class="container">
+  <div class="image-box mt-2">
+    <div class="show-image">
+      <%= image_tag(@post.image.to_s) %>
+    </div>
+  </div>
 
-<% if current_user == @post.user %>
+  <div class="ditail my-5">
+    <p>Angler : <%= @post.user.name %></p>
+    <p>Size : <%= @post.size %></p>
+    <p>Lure : <%= @post.lure %></p>
+    <p>Tactiks : <%= @post.comment %></p>
+    <p>Post_date : <%= @post.created_at %></p>
+  </div>
+
+  <% if current_user == @post.user %>
   <p><%= link_to "edit", edit_post_path(@post) %></p>
   <p><%= link_to "destyroy", @post, method: :delete, data: { confirm: "削除してもよろしいですか?" } %></p>
-<% end %>
+  <% end %>
 
-<p><%= link_to "コメントする", new_post_comment_path(@post) %></p>
+  <p><%= link_to "コメントする", new_post_comment_path(@post) %></p>
 
-<% @comments.each do |comment| %>
+  <% @comments.each do |comment| %>
   <p><%= comment.user.name %> : <%= comment.content %></p>
-<% end %>
+  <% end %>
+</div>

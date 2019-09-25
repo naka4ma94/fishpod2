@@ -7,11 +7,21 @@ body {
 }
 
 /*ヘッダーまわりはサイトに合わせて調整してください*/
-header {
+.index-header {
+  text-align: center;
   padding: 10px;
   background-image: url('IMG_1258.JPG');
   height: 300px;
   background-size: cover;
+
+  .header-title {
+    margin-top: 15px;
+    font-family: 'Permanent Marker', cursive;
+  }
+  .header-content {
+    margin-top: 80px;
+    color: white;
+  }
 }
 
 ul {
@@ -128,10 +138,6 @@ ul {
   }
 }
 
-footer {
-  
-}
-
 .foot-img {
   padding: 10px;
   background-image: url('IMG_0590.jpg');
@@ -143,4 +149,20 @@ footer {
   text-align: center;
   color: white;
   margin: 50px 0px;
+}
+
+.show-image {
+  width: 100%;
+  height: 500px;
+
+  img {
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.ditail {
+  p {
+    border-bottom:1px solid #84b2e0;
+  }
 }
