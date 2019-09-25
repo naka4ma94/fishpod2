@@ -2,12 +2,12 @@ class ImageUploader < CarrierWave::Uploader::Base
   include CarrierWave::MiniMagick
   process resize_to_fill: [1536, 2048, "Center"]
 
-  def fix_rotate
-      manipulate! do |img|
-          img = img.auto_orient
-          img = yield(img) if block_given?
-          img
-      end
+  def fix_exif_rotation
+    manipulate! do |img|
+      img.auto_orient!
+      img = yield(img) if block_given?
+      img
+    end
   end
 
   if Rails.env.production?
