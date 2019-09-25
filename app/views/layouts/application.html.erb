@@ -8,6 +8,7 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Permanent+Marker">
+    <link href="https://fonts.googleapis.com/css?family=Fredericka+the+Great&display=swap" rel="stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
   </head>
 
@@ -34,9 +35,11 @@
     </header>
     <%= yield %>
     <footer>
-      <div class="foot-img mt-3">
-        <div class="foot-text mt-5">producted by a.nakashima</div>
-      </div>
+      <% unless controller.controller_name == "sessions" %>
+        <div class="foot-img mt-3">
+          <div class="foot-text mt-5">producted by a.nakashima</div>
+        </div>
+      <% end %>
     </footer>
   </body>
 </html>

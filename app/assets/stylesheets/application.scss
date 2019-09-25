@@ -135,6 +135,7 @@ ul {
   img {
     width: 100%;
     height: 100%;
+    border-radius: 5px;
   }
 }
 
@@ -166,3 +167,31 @@ ul {
     border-bottom:1px solid #84b2e0;
   }
 }
+
+.login-form {
+  text-align: center;
+  background-image: url('/images/IMG_1344.JPG');
+  height: 600px;
+  background-size: cover;
+  padding-top: 90px;
+
+  .login {
+    width: 80%;
+    margin: 0 auto;
+    height: 400px;
+    background-color: rgba(220, 220, 220, 0.5);
+    padding: 40px 20px;
+    border-radius: 10px;
+
+    h1 {
+      font-family: 'Permanent Marker',
+      cursive;
+    }
+  }
+}
+
+.posts-title {
+  font-family: 'Fredericka the Great',
+  cursive;
+}
+
