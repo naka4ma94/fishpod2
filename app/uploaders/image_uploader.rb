@@ -15,4 +15,8 @@ class ImageUploader < CarrierWave::Uploader::Base
   def extension_whitelist
     %w(jpg jpeg gif png)
   end
+
+  def filename
+     "#{secure_token}.#{file.extension}" if original_filename.present?
+  end
 end
