@@ -16,11 +16,12 @@ class ImageUploader < CarrierWave::Uploader::Base
     %w(jpg jpeg gif png)
   end
 
-  def fix_exif_rotation #this is my attempted solution
-    manipulate! do |img|
-      img.tap(&:auto_orient)
-    end
-  end
-
-  process :fix_exif_rotation
+  process :fix_exif_rotation                                                                                                           
+     def fix_exif_rotation
+        manipulate! do |img|
+        img.auto_orient!
+        img = yield(img) if block_given?
+        img 
+        end 
+      end
 end
