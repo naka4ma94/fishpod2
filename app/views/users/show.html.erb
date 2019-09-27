@@ -1,0 +1,11 @@
+<div class="posts-title">
+  <h2 class="py-3 pl-3 text-center"><%= @user.name %></h2>
+  <h2 class="text-center">POSTS</h2>
+</div>
+<div class="container">
+  <% @posts.each do |post| %>
+  <div class="box">
+    <%= link_to image_tag(post.image.to_s), post_path(post) %>
+  </div>
+  <% end %>
+</div>

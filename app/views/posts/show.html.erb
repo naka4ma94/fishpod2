@@ -6,7 +6,7 @@
   </div>
 
   <div class="ditail my-5">
-    <p>Angler : <%= @post.user.name %></p>
+    <p>Angler : <%= link_to @post.user.name, user_path(@post.user_id) %></p>
     <p>Size : <%= @post.size %></p>
     <p>Lure : <%= @post.lure %></p>
     <p>Tactiks : <%= @post.comment %></p>
