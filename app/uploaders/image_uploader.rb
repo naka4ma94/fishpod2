@@ -15,13 +15,4 @@ class ImageUploader < CarrierWave::Uploader::Base
   def extension_whitelist
     %w(jpg jpeg gif png)
   end
-
-  process :fix_exif_rotation                                                                                                           
-     def fix_exif_rotation
-        manipulate! do |img|
-        img.auto_orient!
-        img = yield(img) if block_given?
-        img 
-        end 
-      end
 end
