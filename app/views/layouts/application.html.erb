@@ -13,6 +13,20 @@
   </head>
 
   <body>
+    <% if controller.controller_name == "posts" && controller.action_name == "index" %>
+      <div class="index-header">
+        <div class="header-title">
+          <h3>FISHPOD</h3>
+          <div class="header-content">
+            <p>Kagoshima BASS fishermans<br />community</p>
+          </div>
+        </div>
+      </div>
+    <% end %>
+    <% flash.each do |key, value| %>
+      <% key = 'success' if key == 'notice' %>
+      <div class="alert alert-<%= key %>"><%= value %></div>
+    <% end %>
     <header>
       <div id="nav-drawer">
           <input id="nav-input" type="checkbox" class="nav-unshown">
