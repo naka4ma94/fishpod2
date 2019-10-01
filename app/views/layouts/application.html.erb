@@ -37,7 +37,7 @@
     </header>
     <%= yield %>
     <footer>
-      <% unless controller.controller_name == "sessions" || controller.controller_name == "registrations"%>
+      <% unless controller.controller_name == "sessions" || controller.controller_name == "registrations" || controller.controller_name == "likes" %>
         <div class="foot-img mt-3">
           <div class="foot-text mt-5">producted by a.nakashima</div>
         </div>

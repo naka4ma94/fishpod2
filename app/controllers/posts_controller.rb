@@ -7,7 +7,9 @@ class PostsController < ApplicationController
   end
 
   def show
+    @like = Like.new
     @post = Post.find(params[:id])
+    @area = Area.find_by(params[:area_id])
     @comments = @post.comments
   end
 
