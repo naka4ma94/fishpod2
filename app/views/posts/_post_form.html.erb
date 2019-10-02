@@ -1,36 +1,35 @@
 <div class="post-form"> 
-  <%= form_with(model: post, locale: true) do |f| %>
-  <div class="form-group">
-    <% if controller.action_name == "new" %>
-    <%= f.label :photo %>
-    <%= f.file_field :image, class: "form-control" %>
-    <% else %>
-    <%= f.hidden_field :image_cache, class: "form-control" %>
-    <% end %>
-  </div>
+  <%= form_with(model: post, local: true) do |f| %>
+    <%= render 'layouts/error_messages', model: f.object %>
+    
+    <div class="form-group">
+      <%= f.label :photo %>
+      <%= f.file_field :image, class: "form-control" %>
+      <%= f.hidden_field :image_cache, class: "form-control" %>
+    </div>
 
-  <div class="form-group">
-    <%= f.select :area_id,
-    [["竹山ダム", 1], ["薩摩湖", 2], 
-    ["鰻池", 3], ["野池", 4], 
-    ["住吉池", 5], ["大隅湖", 6], 
-    ["その他", 7]], class:"form-control" %>
-  </div>
+    <div class="form-group">
+      <%= f.select :area_id,
+      [["竹山ダム", 1], ["薩摩湖", 2], 
+      ["鰻池", 3], ["野池", 4], 
+      ["住吉池", 5], ["大隅湖", 6], 
+      ["その他", 7]], class:"form-control" %>
+    </div>
 
-  <div class="form-group">
-    <%= f.text_field :size, class: "form-control", placeholder: "Size" %>
-  </div>
+    <div class="form-group">
+      <%= f.text_field :size, class: "form-control", placeholder: "Size" %>
+    </div>
 
-  <div class="form-group">
-    <%= f.text_field :lure, class: "form-control", placeholder: "Lure" %>
-  </div>
+    <div class="form-group">
+      <%= f.text_field :lure, class: "form-control", placeholder: "Lure" %>
+    </div>
 
-  <div class="form-group">
-    <%= f.text_area :comment, class: "form-control", placeholder: "Tactics" %>
-  </div>
+    <div class="form-group">
+      <%= f.text_area :comment, class: "form-control", placeholder: "Tactics" %>
+    </div>
 
-  <div class="form-group">
-    <%= f.submit "POST", class: "btn btn-lg btn-secondary btn-block" %>
-  </div>
+    <div class="form-group">
+      <%= f.submit "POST", class: "btn btn-lg btn-secondary btn-block" %>
+    </div>
   <% end %>
 </div>

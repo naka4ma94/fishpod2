@@ -23,10 +23,7 @@
         </div>
       </div>
     <% end %>
-    <% flash.each do |key, value| %>
-      <% key = 'success' if key == 'notice' %>
-      <div class="alert alert-<%= key %>"><%= value %></div>
-    <% end %>
+    
     <header>
       <div id="nav-drawer">
           <input id="nav-input" type="checkbox" class="nav-unshown">
@@ -49,7 +46,9 @@
           </div> 
         </div>
     </header>
+
     <%= yield %>
+
     <footer>
       <% unless controller.controller_name == "sessions" || controller.controller_name == "registrations" || controller.controller_name == "likes" %>
         <div class="foot-img mt-3">
@@ -57,5 +56,13 @@
         </div>
       <% end %>
     </footer>
+    <% unless flash.empty? %>
+    <script type="text/javascript">
+      <% flash.each do |f| %>
+      <% type = f[0].to_s.gsub('alert','error').gsub('notice','info') %>
+      toastr['<%= type %>']('<%= f[1] %>');
+      <% end %>
+    </script>
+    <% end %>
   </body>
 </html>

@@ -1,6 +1,7 @@
 @import "bootstrap";
 @import 'font-awesome-sprockets';
 @import 'font-awesome';
+@import "toastr";
 
 body {
   font-family: 'Georgia';
@@ -212,4 +213,10 @@ ul {
   padding-top: 50px;
   width: 80%;
   margin: 0 auto;
+}
+
+.session-error input{
+  color: #630015;
+  border-color: #c20c33;
+  background-color: #ffd9e1;
 }
