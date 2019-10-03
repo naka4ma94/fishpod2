@@ -17,14 +17,11 @@ class ImageUploader < CarrierWave::Uploader::Base
     %w(jpg jpeg gif png)
   end
 
-  def filename
-    binding.pry
-     "#{secure_token(10)}.#{file.extension}" if original_filename.present?
-  end
-
-  protected
-  def secure_token(length=16)
-    var = :"@#{mounted_as}_secure_token"
-    model.instance_variable_get(var) or model.instance_variable_set(var, SecureRandom.hex(length/2))
+  def fix_exif_rotation
+    manipulate! do |img|
+      img.auto_orient
+      img = yield(img) if block_given?
+      img
+    end
   end
 end
