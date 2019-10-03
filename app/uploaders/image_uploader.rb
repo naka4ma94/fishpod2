@@ -1,6 +1,7 @@
 class ImageUploader < CarrierWave::Uploader::Base
   include CarrierWave::MiniMagick
   process resize_to_fill: [1536, 2048, "Center"]
+  process :fix_exif_rotation
 
   if Rails.env.production?
     storage :fog
@@ -17,10 +18,10 @@ class ImageUploader < CarrierWave::Uploader::Base
   end
 
   def filename
+    binding.pry
      "#{secure_token(10)}.#{file.extension}" if original_filename.present?
   end
 
-  # 一意となるトークンを作成
   protected
   def secure_token(length=16)
     var = :"@#{mounted_as}_secure_token"
