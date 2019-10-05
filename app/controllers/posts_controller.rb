@@ -3,6 +3,8 @@ class PostsController < ApplicationController
   before_action :logged_user, only: [:new, :create, :edit, :update, :destroy]
 
   def index
+    @q = Post.ransack(params[:q])
+    @areas = Area.all
     @posts = Post.all
   end
 
@@ -46,6 +48,10 @@ class PostsController < ApplicationController
     redirect_to posts_path, notice: "投稿を削除しました"
   end
 
+  def search
+    @q = Post.search(search_params)
+  end
+
   private
     def post_params
       params.require(:post).permit(:image, :size, :lure, :comment, :area_id, :user_id, :image_cache)
@@ -56,6 +62,10 @@ class PostsController < ApplicationController
       unless current_user == post.user
         redirect_to posts_path
       end
+    end
+
+    def search_params
+      params.require(:q).permit!
     end
 
     def logged_user
