@@ -11,7 +11,7 @@
     <p>Size : <%= @post.size %></p>
     <p>Lure : <%= @post.lure %></p>
     <p>Tactiks : <%= @post.comment %></p>
-    <p>Post_date : <%= @post.created_at %></p>
+    <p>Post_date : <%= @post.created_at.strftime("%Y-%m-%d %H:%M") %></p>
   </div>
 
   <p>Likes : <%= link_to @post.likes.count, post_like_path(@post) %></p>
