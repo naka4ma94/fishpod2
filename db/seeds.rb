@@ -1,4 +1,4 @@
-names = [
+areas = [
   "竹山ダム",
   "薩摩湖",
   "鰻池",
@@ -7,7 +7,7 @@ names = [
   "大隅湖",
 ]
 
-names.each do |name|
+areas.each do |area|
   Area.create!(
-    { name: name }
+    { name: area }
   )
