@@ -5,13 +5,13 @@ class PostsController < ApplicationController
   def index
     @q = Post.ransack(params[:q])
     @areas = Area.all
-    @posts = Post.all
+    @posts = @q.result(distinct: true)
   end
 
   def show
     @like = Like.new
     @post = Post.find(params[:id])
-    @area = Area.find_by(params[:area_id])
+    @area = Area.find(@post.area_id)
     @comments = @post.comments
   end
 
@@ -50,6 +50,7 @@ class PostsController < ApplicationController
 
   def search
     @q = Post.search(search_params)
+    @posts = @q.result(distinct: true)
   end
 
   private

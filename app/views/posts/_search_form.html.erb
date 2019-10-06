@@ -1,5 +1,11 @@
-<%= search_form_for(@q, url:posts_path) do |f| %>
-  <%= f.label :area_id_eq, 'Area' %>
-  <%= f.collection_check_boxes :area_id_in, @areas, :id, :name %>
-  <%= f.submit %>
-<% end %>
+
+
+<div class="container">
+  <div class="mb-3 search-form">
+    <%= search_form_for(@q, url:posts_path) do |f| %>
+    <%= f.radio_button :area_id_eq, '', {:checked => true} %>指定なし
+    <%= f.collection_radio_buttons :area_id_eq, @areas, :id, :name %>
+    <%= f.submit %>
+    <% end %>
+  </div>
+</div>
