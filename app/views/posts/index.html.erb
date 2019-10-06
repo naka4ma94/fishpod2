@@ -10,4 +10,9 @@
       <%= link_to image_tag(post.image.to_s), post_path(post) %>
     </div>
   <% end %>
+
+  <div class="my-3 pagenate">
+    <%= paginate @posts %>
+    <%= page_entries_info @posts %>
+  </div>
 </div>
