@@ -8,6 +8,6 @@ names = [
 ]
 
 names.each do |name|
-  User.create!(
+  Area.create!(
     { name: name }
   )
