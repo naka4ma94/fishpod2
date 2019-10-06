@@ -11,3 +11,4 @@ areas.each do |area|
   Area.create!(
     { name: area }
   )
+end
