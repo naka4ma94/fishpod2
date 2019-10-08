@@ -1,6 +1,6 @@
 class Post < ApplicationRecord
   validates :image, presence: true
-  validates :size, presence: true, length: { maximum: 2 }
+  validates :size, presence: true, length: { maximum: 2 }, numericality: { only_integer: true }
   validates :comment, length: { maximum: 150 }
   mount_uploader :image, ImageUploader
   default_scope -> { order(created_at: :desc) }
