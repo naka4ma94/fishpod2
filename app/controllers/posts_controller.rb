@@ -53,6 +53,12 @@ class PostsController < ApplicationController
     @posts = @q.result(distinct: true)
   end
 
+  def rank
+    @posts = Post.this_month.size_order
+    @users = User.this_month.count_order
+    # @users = User.find(Post.this_month.group(:user_id).order('count(user_id) desc').limit(5).pluck(:user_id))
+  end
+
   private
     def post_params
       params.require(:post).permit(:image, :size, :lure, :comment, :area_id, :user_id, :image_cache)

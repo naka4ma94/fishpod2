@@ -1,0 +1,53 @@
+<div class="rank-title">
+  <h2 class="text-center">SIZE RANKING</h2>
+</div>
+
+<div class="container">
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th>Rank</th>
+        <th>Angler</th>
+        <th>Size</th>
+        <th>Area</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @posts.each_with_index do |post, n| %>
+        <tr>
+          <td><%= n + 1 %></td>
+          <td><%= link_to post.user.name, post_path(post) %></td>
+          <td><%= post.size %></td>
+          <td><%= post.area.name %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+
+<div class="rank-title">
+  <h2 class="text-center">COUNT RANKING</h2>
+</div>
+
+<div class="container">
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th>Rank</th>
+        <th>Angler</th>
+        <th>Count</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @users.each_with_index do |user, n| %>
+        <tr>
+          <td><%= n + 1 %></td>
+          <td><%= link_to user.name, user_path(user) %></td>
+          <td><%= user.posts.count %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

@@ -10,5 +10,7 @@ Rails.application.routes.draw do
     resources :likes, only: [:show, :create, :destroy]
   end
 
+  get 'ranking', to: 'posts#rank'
+
   get 'search', to: 'posts#search'
 end
