@@ -2,7 +2,7 @@
   <div class="liked-users">
     <p><%= link_to "Back", post_path(@post) %></p>
     <% @post.liked_users.each do |user| %>
-    <p><%= user.name %></p>
+    <p><%= link_to user.name, user_path(user) %></p>
     <% end %>
   </div>
 </div>
