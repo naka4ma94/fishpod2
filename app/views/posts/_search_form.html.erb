@@ -3,7 +3,7 @@
     <%= search_form_for(@q, url:posts_path) do |f| %>
     <%= f.radio_button :area_id_eq, '', {:checked => true} %>指定なし
     <%= f.collection_radio_buttons :area_id_eq, @areas, :id, :name %>
-    <%= f.submit %>
+    <%= f.submit class: "form-control" %>
     <% end %>
   </div>
 </div>
