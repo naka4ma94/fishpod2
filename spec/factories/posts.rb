@@ -5,6 +5,6 @@ FactoryBot.define do
     comment { "test comment" }
     size { 35 }
     area_id { 1 }
-    association :user
+    user { post.user }
   end
 end

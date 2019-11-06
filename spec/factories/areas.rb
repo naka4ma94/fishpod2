@@ -1,6 +1,6 @@
 FactoryBot.define do
   factory :area do
-    name { |n| "test_area#{n}" }
-    association :post
+    sequence(:name) { |n| "test_area#{n}" }
+    post
   end
 end
