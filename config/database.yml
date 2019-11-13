@@ -9,14 +9,14 @@ default: &default
 
 development:
   <<: *default
-  database: sample_development #　DBの名前。「sample」の部分をアプリの名前に変更すると分かりやい
+  database: fishpod_development #　DBの名前。「sample」の部分をアプリの名前に変更すると分かりやい
 
 test:
   <<: *default
-  database: sample_test #　DBの名前。「sample」の部分をアプリの名前に変更すると分かりやい
+  database: fishpod_test #　DBの名前。「sample」の部分をアプリの名前に変更すると分かりやい
 
 production:
   <<: *default
-  database: sample_production
-  username: sample_app
+  database: fishpod_production
+  username: fishpod_app
   password: <%= ENV['SAMPLE_DATABASE_PASSWORD'] %>
