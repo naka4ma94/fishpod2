@@ -9,7 +9,7 @@ set :repo_url, "git@github.com:naka4ma94/fishpod2.git"
 set :branch, 'master'
 
 # Default deploy_to directory is /var/www/my_app_name
-set :deploy_to, "/var/www/fishpod2"
+set :deploy_to, "/var/www/rails/fishpod2"
 
 # Default value for :format is :airbrussh.
 # set :format, :airbrussh
@@ -40,6 +40,8 @@ set :keep_releases, 5
 
 # Uncomment the following to require manually verifying the host key before first deploy.
 # set :ssh_options, verify_host_key: :secure
+
+set :rbenv_ruby, '2.6.3'
 
 set :log_level, :debug
 
